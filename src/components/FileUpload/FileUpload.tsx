@@ -3,6 +3,9 @@
 import React, { useState } from "react";
 import { BlobServiceClient } from "@azure/storage-blob";
 
+const azureStorageConnectionString = process.env.AZURE_STORAGE_CONNECTION_STRING;
+const azureStorageContainerName = process.env.AZURE_STORAGE_CONTAINER_NAME;
+
 const FileUpload: React.FC = () => {
     const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
@@ -14,8 +17,8 @@ const FileUpload: React.FC = () => {
 
     const handleFileUpload = async () => {
         if (selectedFile) {
-            const blobServiceClient = new BlobServiceClient('YOUR_AZURE_STORAGE_CONNECTION_STRING');
-            const containerClient = blobServiceClient.getContainerClient('your-container-name');
+            const blobServiceClient = new BlobServiceClient(azureStorageConnectionString);
+            const containerClient = blobServiceClient.getContainerClient(azureStorageContainerName);
             const blockBlobClient = containerClient.getBlockBlobClient(selectedFile.name);
 
             try {
