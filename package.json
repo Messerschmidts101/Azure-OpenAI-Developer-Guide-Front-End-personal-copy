@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "./build.sh",
+    "build": "bash build.sh",
     "preview": "vite preview"
   },
   "dependencies": {
