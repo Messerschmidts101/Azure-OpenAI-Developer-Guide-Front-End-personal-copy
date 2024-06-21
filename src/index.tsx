@@ -8,7 +8,6 @@ import { initializeIcons } from "@fluentui/react";
 import "./index.css";
 import Layout from "./pages/layout/Layout";
 import Chat from "./pages/chat/Chat";
-import FileUpload from "./components/FileUpload/FileUpload";  // Import the FileUpload component
 
 initializeIcons();
 
@@ -20,10 +19,6 @@ const router = createHashRouter([
             {
                 index: true,
                 element: <Chat />
-            },
-            {
-                path: "upload",
-                element: <FileUpload />  // Add a new route for file upload
             },
             {
                 path: "*",

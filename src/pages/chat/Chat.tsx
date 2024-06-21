@@ -21,6 +21,7 @@ import { ExampleList } from "../../components/Example";
 import { UserChatMessage } from "../../components/UserChatMessage";
 import { ClearChatButton } from "../../components/ClearChatButton";
 import { VectorSettings } from "../../components/VectorSettings";
+import FileUpload from '../../components/FileUpload/FileUpload'; // Adjust the path as per your actual file structure
 //import { useMsal } from "@azure/msal-react";
 
 const Chat = () => {
@@ -254,6 +255,8 @@ const Chat = () => {
                     onRenderFooterContent={() => <DefaultButton onClick={() => setIsConfigPanelOpen(false)}>Close</DefaultButton>}
                     isFooterAtBottom={true}
                 >
+                    {/* Integrate FileUpload component here */}
+                    <FileUpload />
                     <TextField
                         className={styles.chatSettingsSeparator}
                         defaultValue={promptTemplate}
