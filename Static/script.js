@@ -1,3 +1,7 @@
+const myVar = process.env.AZURE_STORAGE_CONTAINER_NAME;
+
+// Use the variable in your application
+console.log(`Value of MY_VAR is: ${myVar}`);
 function sendMessage() {
     const strId = document.getElementById('strIdInput').value;
     const strUserQuestion = document.getElementById('strUserQuestion').value;
