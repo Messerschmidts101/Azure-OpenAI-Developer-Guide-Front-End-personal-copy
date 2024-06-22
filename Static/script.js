@@ -1,7 +1,23 @@
-const myVar = process.env.AZURE_STORAGE_CONTAINER_NAME;
+/*
+// script.js
+fetch('/api/environment')
+  .then(response => response.json())
+  .then(data => {
+    const myVar = data.AZURE_STORAGE_CONTAINER_NAME;
+    console.log(`Value of AZURE_STORAGE_CONTAINER_NAME is: ${myVar}`);
+  })
+  .catch(error => console.error('Error fetching environmental variables:', error));
 
-// Use the variable in your application
-console.log(`Value of MY_VAR is: ${myVar}`);
+*/
+// script.js
+fetch('/api/environment')
+  .then(response => response.json())
+  .then(data => {
+    const myVar = data.AZURE_STORAGE_CONTAINER_NAME;
+    console.log(`Value of AZURE_STORAGE_CONTAINER_NAME is: ${myVar}`);
+  })
+  .catch(error => console.error('Error fetching environmental variables:', error));
+
 function sendMessage() {
     const strId = document.getElementById('strIdInput').value;
     const strUserQuestion = document.getElementById('strUserQuestion').value;
