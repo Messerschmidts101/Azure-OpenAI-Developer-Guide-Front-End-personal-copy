@@ -1,23 +1,41 @@
-/*
-// script.js
-fetch('/api/environment')
-  .then(response => response.json())
-  .then(data => {
-    const myVar = data.AZURE_STORAGE_CONTAINER_NAME;
-    console.log(`Value of AZURE_STORAGE_CONTAINER_NAME is: ${myVar}`);
-  })
-  .catch(error => console.error('Error fetching environmental variables:', error));
+// Define the backend URI (replace with your actual endpoint)
+const BACKEND_URI = 'https://dgxbxbm4k3gbauc-api.lemondune-0dcbb7e4.westus2.azurecontainerapps.io';
 
-*/
-// script.js
-fetch('/api/environment')
-  .then(response => response.json())
-  .then(data => {
-    const myVar = data.AZURE_STORAGE_CONTAINER_NAME;
-    console.log(`Value of AZURE_STORAGE_CONTAINER_NAME is: ${myVar}`);
-  })
-  .catch(error => console.error('Error fetching environmental variables:', error));
+function getHeaders() {
+    return {
+        'Content-Type': 'application/json'
+    };
+}
 
+async function fetchData() {
+    request = {
+        prompt: 'What was the price of the product with sku `FR-R92B-58`?',
+        session_id: "1234" // TODO: Need to generate a session id
+    };
+    try {
+        const response = await fetch(`${BACKEND_URI}/ai`, {
+            method: 'POST',
+            headers: getHeaders(),
+            mode: 'cors',
+            body: JSON.stringify(request)
+        });
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        console.log('Data from backend:', data);
+        // Process your data as needed
+    } catch (error) {
+        console.error('Error fetching data:', error);
+    }
+}
+
+// Call fetchData() when the page loads or as needed
+fetchData();
+
+
+const myVar = process.env.AZURE_STORAGE_CONTAINER_NAME;
+console.log(`Value of MY_VAR is: ${myVar}`);
 function sendMessage() {
     const strId = document.getElementById('strIdInput').value;
     const strUserQuestion = document.getElementById('strUserQuestion').value;
